@@ -174,6 +174,8 @@ typedef int socklen_t;
 #include <net/route.h>
 #endif /* HAVE_NET_ROUTE_H */
 
+#define HAVE_NETLINK
+
 #ifdef HAVE_NETLINK
 #include <linux/netlink.h>
 #include <linux/rtnetlink.h>

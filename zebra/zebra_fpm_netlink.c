@@ -247,7 +247,7 @@ netlink_route_info_fill (netlink_route_info_t *ri, int cmd,
   ri->nlmsg_type = cmd;
   ri->rtm_table = rib_dest_vrf (dest)->vrf_id;
   ri->rtm_protocol = RTPROT_UNSPEC;
-
+  zlog_info ("netlink_route_info_fill: vrf %u",rib_dest_vrf (dest)->vrf_id);
   /*
    * An RTM_DELROUTE need not be accompanied by any nexthops,
    * particularly in our communication with the FPM.
@@ -323,6 +323,7 @@ static int
 netlink_route_info_encode (netlink_route_info_t *ri, char *in_buf,
 			   size_t in_buf_len)
 {
+  zlog_info ("netlink_route_info_encode:");
   int bytelen;
   int nexthop_num = 0;
   size_t buf_offset;

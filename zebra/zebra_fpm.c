@@ -864,10 +864,11 @@ static inline int
 zfpm_encode_route (rib_dest_t *dest, struct rib *rib, char *in_buf,
 		   size_t in_buf_len)
 {
+  zlog_info ("zfpm_encode_route1:");
 #ifndef HAVE_NETLINK
   return 0;
 #else
-
+  zlog_info ("zfpm_encode_route2:");
   int cmd;
 
   cmd = rib ? RTM_NEWROUTE : RTM_DELROUTE;
